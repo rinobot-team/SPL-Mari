@@ -80,8 +80,8 @@ do
 			echo "Extracting"
 			tar -xvzf sdk/$selected -C sdk/
 			echo "Removing SDK opencv (We will use the openCV 2.4 installed on the system)"
-			rm sdk/$sdk_filename/lib/libopencv*
-			rm -rf sdk/$sdk_filename/include/opencv*
+			rm sdk/${sdk_filename}lib/libopencv*
+			rm -rf sdk/${sdk_filename}/include/opencv*
 			echo "Creating local toolchain $local_toolchain"
 			filename="${selected%.*}"
 			sdk_filename="${filename%.*}"
