@@ -83,7 +83,7 @@ do
 			read waitttt
 			filename="${selected%.*}"
 			sdk_filename="${filename%.*}"
-			rm sdk/${sdk_filename}lib/libopencv*
+			rm sdk/${sdk_filename}/lib/libopencv*
 			rm -rf sdk/${sdk_filename}/include/opencv*
 			echo "Creating local toolchain $local_toolchain"
 			qitoolchain create $local_toolchain sdk/$sdk_filename/toolchain.xml
