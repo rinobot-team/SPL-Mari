@@ -24,12 +24,8 @@ StrategyModule::StrategyModule(SpellBook *spellBook)
     squareTimer = 0;
     circleRadius = 2.0f;
 
-    goalie = new GoalieRole(this->spellBook);
-    defender = new DefenderRole(this->spellBook);
-    kicker = new KickerRole(this->spellBook);
-    rPlayer = new RinoPlayer(this->spellBook);
-    ballHolder = new BallHolder(this->spellBook);
-    localizer = new LocalizerRole(this->spellBook);
+    trainee1 = new TraineeRole1(this->spellBook);
+    trainee2 = new TraineeRole2(this->spellBook);
 }
 
 StrategyModule::~StrategyModule()
@@ -46,12 +42,8 @@ StrategyModule::~StrategyModule()
     delete robotTracker;
     delete featureTracker;
 
-    delete goalie;
-    delete defender;
-    delete kicker;
-    delete rPlayer;
-    delete ballHolder;
-    delete localizer;
+    delete trainee1;
+    delete trainee2;
 }
 
 void StrategyModule::OnStart()
@@ -68,12 +60,8 @@ void StrategyModule::OnStart()
     robotTracker->OnStart();
     featureTracker->OnStart();
 
-    goalie->OnStart();
-    defender->OnStart();
-    kicker->OnStart();
-    rPlayer->OnStart();
-    ballHolder->OnStart();
-    localizer->OnStart();
+    trainee1->OnStart();
+    trainee2->OnStart();
 }
 
 void StrategyModule::OnStop()
@@ -90,12 +78,8 @@ void StrategyModule::OnStop()
     robotTracker->OnStop();
     featureTracker->OnStop();
 
-    goalie->OnStop();
-    defender->OnStop();
-    kicker->OnStop();
-    rPlayer->OnStop();
-    ballHolder->OnStop();
-    localizer->OnStop();
+    trainee1->OnStop();
+    trainee2->OnStop();
 }
 
 void StrategyModule::Load()
@@ -284,34 +268,19 @@ void StrategyModule::Tick(float ellapsedTime)
     if (spellBook->network.gameController.PenaltyPhase)
     {
         if (spellBook->behaviour.Number == 1)
-            goalie->Tick(ellapsedTime, sensor);
+            ;// goalie->Tick(ellapsedTime, sensor);
         else
-            kicker->Tick(ellapsedTime, sensor);
+            ;// kicker->Tick(ellapsedTime, sensor);
     }
     else
     {
         switch (spellBook->behaviour.Number)
         {
         case 1:
-            goalie->Tick(ellapsedTime, sensor);
+            trainee1->Tick(ellapsedTime, sensor);
             break;
         case 2:
-            kicker->Tick(ellapsedTime, sensor);
-            break;
-        case 3:
-            defender->Tick(ellapsedTime, sensor);
-            break;
-        case 4:
-            rPlayer->Tick(ellapsedTime, sensor);
-            break;
-        case 5:
-            ballHolder->Tick(ellapsedTime, sensor);
-            break;
-        case 6:
-            kicker->Tick(ellapsedTime, sensor);
-            break;
-        case 7:
-            localizer->Tick(ellapsedTime, sensor);
+            trainee2->Tick(ellapsedTime, sensor);
             break;
         default:
             break;

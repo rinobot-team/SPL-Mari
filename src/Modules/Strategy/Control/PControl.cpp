@@ -36,7 +36,6 @@ void PControl::Tick(float ellapsedTime)
             Xr(2) = 0;
         }
 
-
         float g = FixAngle(atan2(Xo(1), Xo(0)));
         float a = FixAngle(g - Xr(2));
         float b = FixAngle(Xo(1) - g);

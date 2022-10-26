@@ -391,6 +391,7 @@ MotionSpell::MotionSpell()
     DefenderCentre = false;
     ThrowIn = false;
 
+    // Calibrate = true;
     Calibrate = false;
     AngleX = AngleY = GyroX = GyroY = false;
 }

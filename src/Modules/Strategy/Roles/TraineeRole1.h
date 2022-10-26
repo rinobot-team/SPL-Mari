@@ -5,17 +5,15 @@
 
 using namespace std;
 
-class RinoPlayer: public Role {
+class TraineeRole1: public Role {
 
 private:
     bool onStart;
-    int wait;
-    int searchState;
-    bool lookingDown, turningLeft, turningRight, goingForward;
+    int variavelQualquer;
 public:
 
-    RinoPlayer(SpellBook *spellBook);
-    ~RinoPlayer();
+    TraineeRole1(SpellBook *spellBook);
+    ~TraineeRole1();
     void Tick(float ellapsedTime, const SensorValues&);
 
 };
