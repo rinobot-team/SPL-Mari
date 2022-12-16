@@ -7,7 +7,7 @@ if [[ $EUID -eq 0 ]]; then
    exit 1
 fi
 echo "Installing required packages"
-sudo apt-get install cmake libnss-mdns avahi-discover avahi-utils sshpass unzip python2.7 python-pip
+sudo apt-get install -y cmake libnss-mdns avahi-discover avahi-utils sshpass unzip python2.7 python-pip
 sudo pip install qibuild
 
 toolchain="rinobot-robot"
@@ -79,9 +79,12 @@ do
 			echo "naoqi-sdk Found: $selected"
 			echo "Extracting"
 			tar -xvzf sdk/$selected -C sdk/
-			echo "Creating local toolchain $local_toolchain"
+			echo "Removing SDK opencv (We will use the openCV 2.4 installed on the system)"
 			filename="${selected%.*}"
 			sdk_filename="${filename%.*}"
+			# rm sdk/${sdk_filename}/lib/libopencv*
+			# rm -rf sdk/${sdk_filename}/include/opencv*
+			echo "Creating local toolchain $local_toolchain"
 			qitoolchain create $local_toolchain sdk/$sdk_filename/toolchain.xml
 			echo "Adding config"
 			qibuild add-config $local_toolchain -t $local_toolchain

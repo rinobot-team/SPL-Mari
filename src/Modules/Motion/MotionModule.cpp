@@ -162,7 +162,7 @@ void MotionModule::Tick(float ellapsedTime)
     request.leds.rightEye.red = ((spellBook->behaviour.RightEye & 0xFF0000) >> 16) > 128;
     request.leds.rightEye.green = ((spellBook->behaviour.RightEye & 0x00FF00) >> 8) > 128;
     request.leds.rightEye.blue = ((spellBook->behaviour.RightEye & 0x0000FF)) > 128;
-    motion->Tick(request);
+    this->motion->Tick(request);
 }
 
 void MotionModule::ScaleWalk2014(float *forward, float *left, float *turn)

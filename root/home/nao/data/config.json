@@ -55,9 +55,10 @@
         },
         "Behaviour": {
             "Enabled": true,
-            "Number" : 2,
+            "Number" : 1,
             "TeamNumber" : 47,
-            "Names" : ["Dino", "Luci", "Tiny Hand", "Lilith", "Morgana", "Unknown", "Localizer"]
+            "Names" : ["Dino", "Luci", "Tiny Hand", "Lilith", "Morgana", "Unknown", "Localizer", "Robogel"]
         }
+
     }
 }

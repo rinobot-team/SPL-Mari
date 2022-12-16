@@ -72,6 +72,13 @@ for i in "$@" ; do
         services=true
         home=true
         restart=true
+    elif [[ $i == "--almost-all" ]] ; then
+        build=true
+        sudo=true
+        ssh=true
+        root=true
+        services=true
+        home=true
     elif [[ $ct -gt 0 ]]; then
         toolchain=$i
     fi
